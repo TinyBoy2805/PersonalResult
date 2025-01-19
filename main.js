@@ -2,6 +2,8 @@
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
+const rounds = $$('.round')
+const iframe_container = $('.iframe-container')
 
 const sections = $$('section');
 const navLinks = $$('.nav');
@@ -68,3 +70,47 @@ let typed = new Typed('.two',
         cursorChar: "_",
     }
 )
+
+const links = [
+    'https://insanegroup.github.io/WebProject/',
+    'https://insanegroup.github.io/WebProject/src/html/recipes.html',
+    './img/search1-result.webp',
+    './img/info-result.webp',
+    './img/profile-result.webp',
+]
+
+rounds.forEach((round, index) =>
+{
+  
+    round.addEventListener('click', ()=>
+    {
+        const iframe = iframe_container.querySelector('iframe')
+        
+        iframe.src = links[index]
+        iframe_container.style.display = 'block'
+        
+    })
+  
+}
+)
+
+/////////////////animation on srcoll\
+
+
+window.onscroll = ()=>
+{
+  sections.forEach(sec =>
+  {
+    let top = window.scrollY
+    let offset = sec.offsetTop
+    let height = sec.offsetHeight
+
+    if(top >= offset && top < offset + height)
+    {
+      sec.classList.add('show-animate')
+    }else sec.classList.remove('show-animate')
+  }
+  )
+}
+
+

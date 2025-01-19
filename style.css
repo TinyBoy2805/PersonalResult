@@ -230,8 +230,11 @@ body::-webkit-scrollbar-track
     width: 100%;
     /* background: var(--c4); */
     padding: 1rem;
+    transition: .3s;
    
 }
+
+
 
 #home
 {
@@ -429,6 +432,22 @@ body::-webkit-scrollbar-track
     position: relative;
 
 }
+#about *
+{
+    transition: .2s;
+    opacity: 0;
+}
+
+#about.show-animate *
+{
+    opacity: 1;
+}
+
+
+#about.show-animate .ball
+{
+    transform: translateX(0%);
+}
 
 .ball
 {
@@ -523,6 +542,16 @@ body::-webkit-scrollbar-track
    
 }
 
+#tabs *
+{
+    transition: .2s;
+    opacity: 0;
+}
+
+#tabs.show-animate *
+{
+    opacity: 1;
+}
 
 
 
@@ -564,10 +593,10 @@ body::-webkit-scrollbar-track
 /* //////////////////////////////////Results/////////////////////////////////// */
 #result
 {
-    height: auto;
     flex-direction: column;
     background: var(--c4);
 }
+
 
 #result h2
 {
@@ -576,27 +605,183 @@ body::-webkit-scrollbar-track
     margin-top: 1rem;
 }
 
-.bento-container {
+#result .container
+{
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 cột */
-    gap: 20px; /* Khoảng cách giữa các ô */
-    padding: 20px;
-  }
-  
-  .bento-box {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-    transition: transform 0.3s ease, background-color 0.3s ease; /* Hiệu ứng hover */
-  }
-  
-  .bento-box:hover {
-    transform: scale(1.05); /* Tăng kích thước khi hover */
-    background-color: #e0e0e0; /* Đổi màu nền khi hover */
-  }
-  
+    grid-template-rows: repeat(5, 100px);
+    grid-template-columns: repeat(6, 100px);
+    /* border: 1px solid black; */
+    gap: 1rem; 
+    column-gap: 2rem;   
+    grid-template-areas: 
+    "box1 box1 box1 box4 box4 box4"
+    "box1 box1 box1 box4 box4 box4"
+    "box2 box2 box2 box4 box4 box4"
+    "box2 box2 box2 box3 box3 box3"
+    "box2 box2 box2 box3 box3 box3"
+    ;
+    margin-bottom: 2rem;
+}
 
+#result .box
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--c6);
+    border-radius: 10px;
+    transition: .3s;
+    overflow: hidden;
+    position: relative;
+}
+
+#result .box:active
+{
+    box-shadow: 0 0 10px var(--c1);
+    border: 2px solid var(--c1);
+
+    
+}
+
+#result .box1
+{
+    grid-area: box1;
+    
+    
+}
+
+#result .box h3
+{
+    color: var(--c6);
+    font-size: 20px;
+}
+
+#result .box .cover
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: var(--c4);
+    transform: translateY(100%);
+    transition: .3s;
+    user-select: none;
+}
+
+#result .box:active .cover
+{
+    transform: translateY(0);
+}
+
+#result .box .cover ul
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#result .box .cover ul li
+{
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--c7);
+    margin-top: 0.5rem;
+}
+
+#result .box2
+{
+    grid-area: box2;
+  
+}
+#result .box3
+{
+    grid-area: box3;
+
+}
+#result .box4
+{
+    grid-area: box4;
+  
+} 
+
+#result .box4 .cover ul li
+{
+    font-size: 30px;
+}
+
+/* /////////////////////////////result2/////////////////////////////// */
+
+#result2
+{
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--c4);
+}
+  
+#result2 h2
+{
+    font-size: 40px;
+    color: var(--c6);
+    margin-top: 1rem;
+}
+
+#result2 .container
+{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    color: white;
+    margin-top: 3rem;
+    
+}
+
+#result2 .container .round
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: var(--c4);
+    padding: 1.5rem;
+    border-radius: 50%;
+    border: 2px solid var(--c1);
+    color: var(--c1);
+    font-size: 20px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+#result2 .container .round:hover
+{
+    background: var(--c1);
+    box-shadow: 0 0 10px var(--c1);
+    color: var(--c4);
+}
+
+/* //////////////////////Iframe////////////////////////////////// */
+
+.iframe-container
+{
+    background: var(--c4);
+    width: 100%;
+    height: 100vh;
+    display: none;
+    margin-bottom: 1rem;
+}
+
+.iframe-container iframe
+{
+    background: var(--c4);
+    width: 100%;
+    height: 100%;
+}
 
 
 
